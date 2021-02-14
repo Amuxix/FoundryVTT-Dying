@@ -1,46 +1,46 @@
 {
-  "name": "dying",
-  "title": "DnD 5e Dying",
-  "description": "Adds a new way to handle death saving throws using a dying condition, similar to PF2",
-  "version": "0.0.1",
-  "library": "false",
-  "manifestPlusVersion": "1.0.0",
-  "minimumCoreVersion": "0.7.9",
-  "compatibleCoreVersion": "0.7.9",
-  "type": "module",
-  "authors": [
-    {
-      "name": "Amuxix",
-      "email": "amuxix+foundry@gmail.com",
-      "url": "https://github.com/amuxix"
-    }
-  ],
-  "dependencies": [
-    {
-      "name": "dnd5e",
-      "type": "system"
-    },
-    {
-      "name": "combat-utility-belt"
-    }
-  ],
-  "conflicts": [],
-  "esmodules": [
-    "./scripts/dying.js"
-  ],
-  "styles": [],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
-  ],
-  "license": "./LICENSE",
-  "url": "https://github.com/Amuxix/FoundryVTT-Dying",
-  "bugs": "https://github.com/Amuxix/FoundryVTT-Dying/issues",
-  "changelog": "https://github.com/Amuxix/FoundryVTT-Dying/blob/master/CHANGELOG.md",
-  "manifest": "https://github.com/Amuxix/FoundryVTT-Dying/releases/latest/download/module.json",
-  "download": "https://github.com/Amuxix/FoundryVTT-Dying/releases/download/v0.0.1/module.zip",
-  "media": []
+    "name": "dying",
+    "title": "DnD 5e Dying",
+    "description": "Adds a new way to handle death saving throws using a dying condition, similar to PF2",
+    "version": "Initial Release",
+    "library": "false",
+    "manifestPlusVersion": "1.0.0",
+    "minimumCoreVersion": "0.7.9",
+    "compatibleCoreVersion": "0.7.9",
+    "type": "module",
+    "authors": [
+        {
+            "name": "Amuxix",
+            "email": "amuxix+foundry@gmail.com",
+            "url": "https://github.com/amuxix"
+        }
+    ],
+    "dependencies": [
+        {
+            "name": "dnd5e",
+            "type": "system"
+        },
+        {
+            "name": "combat-utility-belt"
+        }
+    ],
+    "conflicts": [],
+    "esmodules": [
+        "./scripts/dying.js"
+    ],
+    "styles": [],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        }
+    ],
+    "license": "./LICENSE",
+    "url": "https://github.com/Amuxix/FoundryVTT-Dying",
+    "bugs": "https://github.com/Amuxix/FoundryVTT-Dying/issues",
+    "changelog": "https://github.com/Amuxix/FoundryVTT-Dying/blob/master/CHANGELOG.md",
+    "manifest": "https://github.com/Amuxix/FoundryVTT-Dying/releases/latest/download/module.json",
+    "download": "https://github.com/Amuxix/FoundryVTT-Dying/releases/download/0.0.1/module.zip",
+    "media": []
 }
