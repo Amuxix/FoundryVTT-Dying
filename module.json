@@ -19,9 +19,6 @@
         {
             "name": "dnd5e",
             "type": "system"
-        },
-        {
-            "name": "combat-utility-belt"
         }
     ],
     "conflicts": [],
