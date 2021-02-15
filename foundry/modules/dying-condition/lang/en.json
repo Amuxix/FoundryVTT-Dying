@@ -1,0 +1,21 @@
+{
+  "dying-condition.setting.noCondition.label": "None",
+
+  "dying-condition.setting.useEnhancedConditions.label": "Use Enhanced Conditions",
+  "dying-condition.setting.useEnhancedConditions.hint": "Conditions from Combat Utility Belt can be used",
+
+  "dying-condition.setting.dyingConditionName.label": "Dying condition",
+  "dying-condition.setting.dyingConditionName.hint": "Five conditions need to exist that fit the format `Name Level`, ie `Dying 1`",
+
+  "dying-condition.setting.exhaustionConditionName.label": "Exhaustion condition",
+  "dying-condition.setting.exhaustionConditionName.hint": "Five conditions need to exist that fit the format `Name Level`, ie `Exhaustion 1`",
+
+  "dying-condition.setting.incapacitatedConditionName.label": "Incapacitated condition",
+
+  "dying-condition.setting.unconsciousConditionName.label": "Unconscious condition",
+
+  "dying-condition.setting.proneConditionName.label": "Prone condition",
+
+  "dying-condition.setting.deadConditionName.label": "Dead condition",
+  "dying-condition.setting.deadConditionName.hint": "This can be useful if you have Conditions Lab configured to mark tokens with this condition as defeated"
+}

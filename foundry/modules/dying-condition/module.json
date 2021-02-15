@@ -1,6 +1,6 @@
 {
-    "name": "dying",
-    "title": "DnD 5e Dying",
+    "name": "dying-condition",
+    "title": "Dying Condition",
     "description": "Adds a new way to handle death saving throws using a dying condition, similar to PF2",
     "version": "Initial Release",
     "library": "false",
@@ -19,6 +19,9 @@
         {
             "name": "dnd5e",
             "type": "system"
+        },
+        {
+            "name": "combat-utility-belt"
         }
     ],
     "conflicts": [],
