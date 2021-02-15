@@ -58,7 +58,7 @@ jobs:
       - name: Update repo with new version info
         uses: EndBug/add-and-commit@v7
         with:
-          add: module.json CHANGELOG.md
+          add: foundry/modules/dying-condition/module.json CHANGELOG.md
           author_name: Release Auto-Commit
           author_email: amuxix+foundry@gmail.com
           branch: master
