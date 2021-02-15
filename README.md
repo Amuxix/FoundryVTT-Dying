@@ -48,10 +48,6 @@ When character has 1 or more HP
 When character truly died
 ![FoundryVTT-Dying](screenshots/Dead.png)
 
-## TODO
-- [ ] Integrate with Combat Utility Belt.
-- [ ] Add debug settings.
-
 ## Bug Reporting
 There might be a few bugs left. Feel free to open new issues if you find any issues.
 
