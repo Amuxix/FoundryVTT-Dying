@@ -17,5 +17,12 @@
   "dying-condition.setting.proneConditionName.label": "Prone condition",
 
   "dying-condition.setting.deadConditionName.label": "Dead condition",
-  "dying-condition.setting.deadConditionName.hint": "This can be useful if you have Conditions Lab configured to mark tokens with this condition as defeated"
+  "dying-condition.setting.deadConditionName.hint": "This can be useful if you have Conditions Lab configured to mark tokens with this condition as defeated",
+
+  "dying-condition.state.dead": "Dead",
+  "dying-condition.state.dying": "Dying",
+  "dying-condition.state.stable": "Stable",
+  "dying-condition.state.alive": "Alive",
+
+  "dying-condition.sheetLabel": "DyingConditionCharacterSheet"
 }
