@@ -1,27 +1,21 @@
-import {KEY} from "./module.js"
-
-export const SETTINGS_UPDATED = KEY + '.SettingsUpdated'
-export const SETTING_KEY = `${KEY}.setting.`
-
-function refresh() {
-  Hooks.callAll(SETTINGS_UPDATED)
-}
+import {KEY} from "./dying-condition.js"
 
 class Setting {
   static all = []
-  constructor(type, key, defaultValue, hasHint, choices) {
+  constructor(type, key, defaultValueFn, hasHint, choices) {
     this.type = type
     this.key = key
     this.hasHint = hasHint
-    this.defaultValue = defaultValue
-    this.choices = choices
-    Settings.all.push(this)
+    this.defaultValueFn = defaultValueFn
+    this.choicesFn = choices
+    Setting.all.push(this)
   }
 
   register() {
-    const name = game.i18n.localize(`${SETTING_KEY}${this.key}.label`)
-    const hint = this.hasHint ? game.i18n.localize(`${SETTING_KEY}${this.key}.hint`) : null
-    const choices = this.choices.length === 0 ? null : this.choices.reduce((acc, choice) => {
+    const name = game.i18n.localize(`${KEY}.setting.${this.key}.label`)
+    const hint = this.hasHint ? game.i18n.localize(`${KEY}.setting.${this.key}.hint`) : null
+    const choiceArray = this.choicesFn()
+    const choices = choiceArray.length === 0 ? null : choiceArray.reduce((acc, choice) => {
       acc[`${choice}`] = choice
       return acc
     }, {})
@@ -30,10 +24,10 @@ class Setting {
       hint: hint,
       scope: "world",
       config: true,
-      default: this.defaultValue,
+      default: this.defaultValueFn(),
       type: this.type,
       choices: choices,
-      onChange: refresh,
+      onChange: () => void 0,
     })
   }
 
@@ -44,7 +38,7 @@ class Setting {
 
 class BooleanSetting extends Setting {
   constructor(key, defaultValue, hasHint = false) {
-    super(Boolean, key, defaultValue, hasHint, [])
+    super(Boolean, key, () => defaultValue, hasHint, () => [])
     this.key = key
     this.hasHint = hasHint
     this.defaultValue = defaultValue
@@ -55,48 +49,57 @@ class BooleanSetting extends Setting {
 }
 
 class ConditionSetting extends Setting {
-  constructor(key, defaultValue, hasHint, choices = []) {
-    super(String, key, ifExists(defaultValue), hasHint, choices)
+  constructor(key, defaultValue, hasHint, choices = () => []) {
+    super(String, key, () => ifExists(defaultValue), hasHint, choices)
   }
 
   get use() {
-    return this.value !== NONE
+    return this.value !== NONE()
   }
 }
 
-let conditions
-export let NONE
-let allConditions
+let _NONE = null
+function NONE() {
+  if (_NONE === null) {
+    return game.i18n.localize(`${KEY}.setting.noCondition.label`)
+  }
+  return _NONE
+}
+
+let _conditions = null
+function conditions() {
+  if (_conditions === null) {
+    let conditions = []
+    if (game?.cub?.conditions) {
+      conditions = game.cub.conditions.map(condition => condition.name.split(" ")[0]).filter(c => c !== "")
+    }
+    _conditions = [NONE(), ...new Set(conditions)]
+  }
+  return _conditions
+}
 
 function ifExists(condition) {
-  const found = allConditions.find(cond => cond.localeCompare(condition) === 0)
-  return found ? found : NONE
+  const found = conditions().find(cond => cond.localeCompare(condition) === 0)
+  return found ? found : NONE()
 }
 
-class Settings {
-  static all = []
-  UseCUBEnhancedConditions = new BooleanSetting("useEnhancedConditions", !!game?.cub, true)
+const Settings = {
+  UseCUBEnhancedConditions: new BooleanSetting("useEnhancedConditions", !!game?.cub, true),
 
-  CUBDyingConditionName = new ConditionSetting("dyingConditionName", "Dying", true, allConditions)
+  CUBDyingConditionName: new ConditionSetting("dyingConditionName", "Dying", true, conditions),
 
-  CUBExhaustionConditionName = new ConditionSetting("exhaustionConditionName", "Exhaustion", true, allConditions)
+  CUBExhaustionConditionName: new ConditionSetting("exhaustionConditionName", "Exhaustion", true, conditions),
 
-  CUBIncapacitatedConditionName = new ConditionSetting("incapacitatedConditionName", "Incapacitated", false, allConditions)
+  CUBIncapacitatedConditionName: new ConditionSetting("incapacitatedConditionName", "Incapacitated", false, conditions),
 
-  CUBUnconsciousConditionName = new ConditionSetting("unconsciousConditionName", "Unconscious", false, allConditions)
+  CUBUnconsciousConditionName: new ConditionSetting("unconsciousConditionName", "Unconscious", false, conditions),
 
-  CUBProneConditionName = new ConditionSetting("proneConditionName", "Prone", false, allConditions)
+  CUBProneConditionName: new ConditionSetting("proneConditionName", "Prone", false, conditions),
 
-  CUBDeadConditionName = new ConditionSetting("deadConditionName", "Dead", true, allConditions)
+  CUBDeadConditionName: new ConditionSetting("deadConditionName", "Dead", true, conditions)
 }
 
-export let settings
+Object.freeze(Settings)
+export default Settings
 
-Hooks.once('ready', () => {
-  conditions = game?.cub?.conditions ? game.cub.conditions.map(condition => condition.name.split(" ")[0]) : []
-  NONE = game.i18n.localize(`${SETTING_KEY}noCondition.label`)
-  allConditions = [NONE, ...new Set(conditions.filter(c => c !== ""))]
-  settings = new Settings()
-  Object.freeze(settings)
-  Settings.all.forEach(setting => setting.register())
-})
+Hooks.once('ready', () => Setting.all.forEach(setting => setting.register()))

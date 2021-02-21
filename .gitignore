@@ -2,3 +2,5 @@ foundry/scripts/
 foundry/systems/
 .idea/
 *.iml
+foundry/modules/*
+!foundry/modules/dying-condition/
