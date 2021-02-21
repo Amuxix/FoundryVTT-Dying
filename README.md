@@ -40,13 +40,13 @@ Nat 1 Your dying value increases by 2.
 If dying ever reaches 0 you lose the dying condition and are considered stable. If you have 0 hit points when you lose the dying condition you remain Unconscious.  
 
 ## Images
-When character is dying
+When character is dying  
 ![FoundryVTT-Dying](screenshots/Dying.png)
 
-When character has 1 or more HP
+When character has 1 or more HP  
 ![FoundryVTT-Dying](screenshots/Alive.png)
 
-When character truly died
+When character truly died  
 ![FoundryVTT-Dying](screenshots/Dead.png)
 
 ## Bug Reporting
