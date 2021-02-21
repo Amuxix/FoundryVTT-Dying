@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.2.0](https://github.com/Amuxix/FoundryVTT-Dying/tree/v0.2.0) (2021-02-21)
+
+[Full Changelog](https://github.com/Amuxix/FoundryVTT-Dying/compare/v0.1.0...v0.2.0)
+
+## [v0.1.0](https://github.com/Amuxix/FoundryVTT-Dying/tree/v0.1.0) (2021-02-15)
+
+[Full Changelog](https://github.com/Amuxix/FoundryVTT-Dying/compare/0.0.1...v0.1.0)
+
 ## [0.0.1](https://github.com/Amuxix/FoundryVTT-Dying/tree/0.0.1) (2021-02-14)
 
 [Full Changelog](https://github.com/Amuxix/FoundryVTT-Dying/compare/2a77c8014bbfba578c728be6ade643b910330a93...0.0.1)
