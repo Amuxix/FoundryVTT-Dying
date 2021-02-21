@@ -1,5 +1,6 @@
 # DnD 5e Dying condition
 [![Latest Release Download Count](https://img.shields.io/github/downloads/amuxix/FoundryVTT-Dying/latest/module.zip?color=brightgreen&label=Downloads&link=https://github.com/Amuxix/FoundryVTT-Dying/releases)](https://github.com/Amuxix/FoundryVTT-Dying/releases)
+[![Foundry Hub Installs](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=Forge%20Installs&query=package.installs&url=http%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fdying-condition&suffix=%25)](https://www.foundryvtt-hub.com/package/dying-condition/)
 [![Foundry Core Compatible Version](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=Foundry%20Version&query=$.compatibleCoreVersion&url=https%3A%2F%2Fgithub.com%2FAmuxix%2FFoundryVTT-Dying%2Freleases%2Flatest%2Fdownload%2Fmodule.json)](https://foundryvtt.com/packages/dying-condition)
 
 This is a module for Foundry Virtual Tabletop adds a condition similar to Pathfinder's Dying condition to DnD 5e.
